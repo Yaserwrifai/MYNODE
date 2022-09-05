@@ -104,4 +104,16 @@ const updateMuseum = async (req, res) => {
   }
 };
 
-export { getAllMuseums, uploadPicture, newMuseum, updateMuseum };
+
+const addComment = async (req, res) => {
+  const museumId = req.body.museumId;
+  const commentObj = {
+    text: req.body.text,
+    userId: req.body.userId,
+    date: req.body.date
+  }
+  console.log('museumId', museumId)
+  console.log('commentObj', commentObj)
+}
+
+export { getAllMuseums, uploadPicture, newMuseum, updateMuseum, addComment };

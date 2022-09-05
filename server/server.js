@@ -11,7 +11,7 @@ import passport from "passport";
 import { passportConfig } from "./config/passport.js";
 
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
 
 const addMiddleware = () => {
   app.use(express.json());

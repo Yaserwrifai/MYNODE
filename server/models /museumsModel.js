@@ -28,6 +28,7 @@ const museumsSchema = new mongoose.Schema({
     required: false,
   },
   city: { type: Schema.Types.ObjectId, ref: "city" },
+  comments: [{ text: { type: String }, userId: { type: String }, date: { type: Date } }]
 });
 
 const museumsModel = mongoose.model("museum", museumsSchema);
