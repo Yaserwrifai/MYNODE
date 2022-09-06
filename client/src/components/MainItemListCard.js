@@ -1,7 +1,8 @@
 import React, {useState } from "react";
-import Card from "@mui/material/Card";
+//import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import Card from 'react-bootstrap/Card';
 
 function MainItemListCard({ item }) {
   const [updatedMuseumData, setUpdatedMuseumData] = useState(null);
@@ -32,7 +33,7 @@ function MainItemListCard({ item }) {
     console.log("requestOptions.body", requestOptions.body);
     try {
       const response = await fetch(
-        "http://localhost:5001/api/museums/updateMuseum",
+        "http://localhost:5000/api/museums/updateMuseum",
         requestOptions
       );
       const results = await response.json();
@@ -44,23 +45,40 @@ function MainItemListCard({ item }) {
   console.log("item",item)
   console.log("updatedMuseumData: ", updatedMuseumData);
 
-  return  <div>
-  <Card sx={{ maxWidth: 345 }}>
+  return ( <div className="div1">
+   <div class="row">
+  <div class="col col-sm-6">
+    <Card class="card " style={{ width: '18rem' }}>
+    <Card.Title>  {item.name} </Card.Title>
+    <Card.Text>
+        {item && <p>{item.type}</p>}
+          {item && <p>{item.price}</p>}
+        </Card.Text>
+    <Card.Body>
+    {item.avatarPicture && item.avatarPicture !== "undefined" && <img src={item.avatarPicture} height={200}  width={400}  alt="not Found" />} 
+      </Card.Body>
+    </Card>
+    </div>
+    </div>
+    </div>
+   
+  )
+  {/* <Card sx={{ maxWidth: 345 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {item.name} 
-         {item.avatarPicture && item.avatarPicture !== "undefined" && <img src={item.avatarPicture} height={200} />} 
+         {item.avatarPicture && item.avatarPicture !== "undefined" && <img src={item.avatarPicture} height={200} alt="not Found" />} 
           {item && <p>{item.type}</p>}
           {item && <p>{item.price}</p>}
         </Typography>
       </CardContent>
-{/* 
-      <form onSubmit={updatedMuseum}>
+      </Card> */}
+      {/* <form onSubmit={updatedMuseum}>
         <label htmlFor="updatedMuseum">NewMuseum</label>
         <input
           type="text"
           placeholder="name "
-          // value={updatedMuseumData?.name ? updatedMuseumData.name : ""}
+          //value={updatedMuseumData.name ? updatedMuseumData.name : ""}
           onChange={handleChangeHandler}
           name="name"
         />
@@ -68,7 +86,7 @@ function MainItemListCard({ item }) {
         <input
           type="text"
           placeholder="price"
-          // value={updatedMuseumData?.price ? updatedMuseumData.price : ""}
+          //value={updatedMuseumData.price ? updatedMuseumData.price : ""}
           onChange={handleChangeHandler}
           name="price"
         />
@@ -76,7 +94,7 @@ function MainItemListCard({ item }) {
         <input
           type="text"
           placeholder="type"
-          // value={updatedMuseumData?.type ? updatedMuseumData.type : ""}
+          //value={updatedMuseumData.type ? updatedMuseumData.type : ""}
           onChange={handleChangeHandler}
           name="type"
         />
@@ -85,7 +103,7 @@ function MainItemListCard({ item }) {
       </form> */}
 
       {/* NOTE 1st) create input fields, to modify data (input field for Name, for price, for type). Create button to call the funtion to modify */}
-    </Card>
-    </div>
+    
+    
 }
 export default MainItemListCard;

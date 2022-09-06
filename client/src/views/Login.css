@@ -15,31 +15,19 @@ input[type="password"] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #04aa6d;
+  background-color: #df1c43; 
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  margin: 4px 2px;
   cursor: pointer;
-  width: 50%;
 }
 
 button:hover {
   opacity: 0.8;
 }
 
-/* Center the avatar image inside this container */
-/* .imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-} */
-
-/* Avatar image */
-/* img.avatar {
-  width: 40%;
-  border-radius: 50%;
-} */
-/* Add padding to containers */
 .container {
   padding: 16px;
-}
+}  

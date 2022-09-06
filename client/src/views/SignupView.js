@@ -35,7 +35,7 @@ function SignupView() {
 
     try {
       const response = await fetch(
-        "http://localhost:5001/api/users/imageUpload",
+        "http://localhost:5000/api/users/imageUpload",
         requestOptions
       );
       const result = await response.json();
@@ -62,7 +62,7 @@ function SignupView() {
     console.log("requestOptions.body", requestOptions.body);
     try {
       const response = await fetch(
-        "http://localhost:5001/api/users/signup",
+        "http://localhost:5000/api/users/signup",
         requestOptions
       );
       const results = await response.json();

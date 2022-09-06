@@ -36,7 +36,7 @@ function PostMuseum() {
       console.log("posting new museum now");
 
       const response = await fetch(
-        "http://localhost:5001/api/museums/newMuseum",
+        "http://localhost:5000/api/museums/newMuseum",
         requestOptions
       );
       const result = await response.json();
@@ -71,7 +71,7 @@ function PostMuseum() {
     };
     try {
       const response = await fetch(
-        "http://localhost:5001/api/museums/imageUploads",
+        "http://localhost:5000/api/museums/imageUploads",
         requestOptions
       );
       const result = await response.json();
@@ -88,7 +88,7 @@ function PostMuseum() {
   return (
     <div>
       <div>
-        <img width="100" src={newMuseum.avatarPicture} />
+        <img width="100" src={newMuseum.avatarPicture}  alt=""/>
       </div>
       <form onSubmit={addMuseum}>
         <label htmlFor="addMuseum">NewMuseum</label>

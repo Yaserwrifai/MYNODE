@@ -16,7 +16,7 @@ function Profile() {
       };
       try {
         const response = await fetch(
-          "http://localhost:5001/api/users/profile",
+          "http://localhost:5000/api/users/profile",
           requestOptions
         );
         const result = await response.json();

@@ -116,4 +116,6 @@ const addComment = async (req, res) => {
   console.log('commentObj', commentObj)
 }
 
-export { getAllMuseums, uploadPicture, newMuseum, updateMuseum, addComment };
+
+
+export { getAllMuseums, uploadPicture, newMuseum, updateMuseum,addComment };

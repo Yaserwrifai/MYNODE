@@ -11,18 +11,21 @@ import { Link } from "@mui/material";
 
 function MainNavbar() {
   return (
-    <>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" className="link">
+    < >
+
+
+<ul>
+  <li><a href="home">Home</a></li>
+  <li><a href="Signup">signUp</a></li>
+  <li><a href="Login">login</a></li>
+  <li><a href="Profile">Profile</a></li>
+  <li><a href="postmuseum">NewMuseum</a></li>
+</ul>
+
+      {/* <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" className="link ul">
           <Toolbar variant="dense" style={{ width: "100px" }}>
-            {/* <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton> */}
+            
             <Typography
               variant="h6"
               color="inherit"
@@ -44,7 +47,7 @@ function MainNavbar() {
             </Link>
           </Toolbar>
         </AppBar>
-      </Box>
+      </Box> */}
     </>
   );
 }
