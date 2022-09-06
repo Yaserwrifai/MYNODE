@@ -85,7 +85,7 @@ const newMuseum = async (req, res) => {
 };
 //here i create  user find by id
 const updateMuseum = async (req, res) => {
-  console.log("req.body in Pudate>>>", req.body);
+  console.log("req.body in update>>>", req.body);
   const museumId = req.body.id;
   try {
     const updatedMuseum = await museumsModel.findByIdAndUpdate(
@@ -104,18 +104,4 @@ const updateMuseum = async (req, res) => {
   }
 };
 
-
-const addComment = async (req, res) => {
-  const museumId = req.body.museumId;
-  const commentObj = {
-    text: req.body.text,
-    userId: req.body.userId,
-    date: req.body.date
-  }
-  console.log('museumId', museumId)
-  console.log('commentObj', commentObj)
-}
-
-
-
-export { getAllMuseums, uploadPicture, newMuseum, updateMuseum,addComment };
+export { getAllMuseums, uploadPicture, newMuseum, updateMuseum };
