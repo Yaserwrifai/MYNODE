@@ -24,6 +24,7 @@ function Profile() {
           email: result.email,
           userName: result.userName,
           avatarPicture: result.avatarPicture,
+          
         });
       } catch (error) {
         console.log("error getting profile", error);
@@ -33,13 +34,15 @@ function Profile() {
   };
   return (
     <>
-      <h2>User Profile</h2>
+      <h1>User Profile  Information </h1>
       <button onClick={getProfile}>getProfile</button>
       {userProfile && (
         <div>
-          <h1>{userProfile.userName}</h1>
-          <h1>{userProfile.email}</h1>
-          <img src={userProfile.avatarPicture} alt="" width={100} />
+        
+          <h2> User Name : {userProfile.userName}</h2>
+          <h2>User Email  : {userProfile.email}</h2>
+        <h2>User Picture</h2> 
+         <img src={userProfile.avatarPicture} alt="User Profile Not found" width={200} />
         </div>
       )}
     </>

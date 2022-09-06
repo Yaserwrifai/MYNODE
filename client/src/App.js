@@ -13,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <MainNavbar />
+
       <AutenticationContextProvider>
         <AppContextProvider>
           <Routes>

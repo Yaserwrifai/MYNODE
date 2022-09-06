@@ -3,36 +3,28 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+
 import Button from "@mui/material/Button";
 import "./MainNavbar.css";
 import { Link } from "@mui/material";
 
+
 function MainNavbar() {
   return (
-    < >
-
-
-<ul>
-  <li><a href="home">Home</a></li>
-  <li><a href="Signup">signUp</a></li>
-  <li><a href="Login">login</a></li>
-  <li><a href="Profile">Profile</a></li>
-  <li><a href="postmuseum">NewMuseum</a></li>
-</ul>
-
-      {/* <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" className="link ul">
+    <>
+      <Box sx={{ flexGrow: 5 }}>
+        <AppBar position="static" className="link">
           <Toolbar variant="dense" style={{ width: "100px" }}>
-            
             <Typography
               variant="h6"
               color="inherit"
               component="div"
             ></Typography>
-            <Link href="home">Home</Link>
+            <Link href="home">
+              <Button color="inherit">Home </Button>
+            </Link>
             <Link href="signup">
+              {" "}
               <Button color="inherit">Signup</Button>
             </Link>
             <Link href="login">
@@ -41,13 +33,13 @@ function MainNavbar() {
             <Link href="profile">
               <Button color="inherit">Profile</Button>
             </Link>
-            ......
+            ..
             <Link href="postmuseum">
               <Button color="inherit">NewMuseum</Button>
             </Link>
           </Toolbar>
         </AppBar>
-      </Box> */}
+      </Box>
     </>
   );
 }
