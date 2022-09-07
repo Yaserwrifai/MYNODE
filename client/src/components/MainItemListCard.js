@@ -5,6 +5,8 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import { getToken } from "../utils/getToken";
 import { AppContext } from "../context/appContext";
+import "./item.css"
+
 
 function MainItemListCard({ item }) {
   const { getProfile, userProfile } = useContext(AppContext);
@@ -111,10 +113,14 @@ function MainItemListCard({ item }) {
   console.log("userProfile: ", userProfile);
 
   return (
-    <Card raised sx={{ maxWidth: 345 }}>
+    <Card  raised sx={{ maxWidth: 345 }}>
       <CardContent>
+      {item.avatarPicture && <img src={item.avatarPicture} height={200} />}
+     <h4>Museum name  : </h4> <p className="redd">{item.name}</p>  
+     <h4>Activity type :</h4>  <p className="redd">{item.type}</p>
+     <h4>Entry price :  </h4>  <p className="redd">{item.price}  $</p>
         <label htmlFor="updatedComments">
-          <p>updatedComments</p>
+          {/* <p>updatedComments</p> */}
         </label>
         <input
           type="text"
@@ -128,17 +134,14 @@ function MainItemListCard({ item }) {
 
         <button type="button" onClick={postComment}>
           {" "}
-          submit
+          Update Comment
         </button>
 
         <Typography gutterBottom variant="h5" component="div">
-          {item.name}
-          {item.avatarPicture && <img src={item.avatarPicture} height={200} />}
-          {item && <p>{item.type}</p>}
-          {item && <p>{item.price}</p>}
+          
         </Typography>
       </CardContent>
-      <Button onClick={handleUpdateMuseumClick}>Show More</Button>
+      {/* <Button onClick={handleUpdateMuseumClick}>Show More</Button> */}
 
       {!showUpdateForm && (
         <form onSubmit={updatedMuseum}>
