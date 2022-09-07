@@ -104,4 +104,9 @@ const updateMuseum = async (req, res) => {
   }
 };
 
-export { getAllMuseums, uploadPicture, newMuseum, updateMuseum };
+const getMuseumById = async (req, res) => {
+  const {museumId} = req.params
+  const museum = await museumsModel.findById(museumId)
+  res.status(200).json({  museum });
+}
+export { getAllMuseums, uploadPicture, newMuseum, updateMuseum, getMuseumById };

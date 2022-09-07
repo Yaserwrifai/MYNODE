@@ -25,7 +25,7 @@ function Login() {
         requestOptions
       );
       const result = await response.json();
-      const { token, user } = result;
+      const { token} = result;
       console.log("logging successful", result);
       if (token) {
         localStorage.setItem("token", token);

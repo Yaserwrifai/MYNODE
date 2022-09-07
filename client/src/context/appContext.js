@@ -7,8 +7,10 @@ const AppContext = createContext();
 
 const AppContextProvider = (props) => {
   //this is for user loggin
+  // eslint-disable-next-line
   const [isDataLoading, setIsDataLoading] = useState();
   const [myItem, setMyItem] = useState(null);
+  // eslint-disable-next-line
   const [error, setError] = useState(null);
 
   const [userProfile, setUserProfile] = useState(null);
@@ -45,6 +47,16 @@ const AppContextProvider = (props) => {
         );
         const result = await response.json();
         console.log('results', result)
+
+
+        const res = await Promise.all(result.comments.map(comment => fetch(
+          `http://localhost:5000/api/museums/${comment.museumId}`,
+          requestOptions
+        )))
+        const museums = await Promise.all(res.map(r => r.json()))
+        console.log('museums', museums)
+
+
         setUserProfile({
           email: result.email,
           userName: result.userName,

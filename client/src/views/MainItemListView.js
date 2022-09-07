@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import MainItemListCard from "../components/MainItemListCard";
 import { AppContext } from "../context/appContext";
-import row from 'react-bootstrap';
+
 
 function MainItemListView() {
   const { myItem } = useContext(AppContext);

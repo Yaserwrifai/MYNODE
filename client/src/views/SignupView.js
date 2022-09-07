@@ -76,7 +76,7 @@ function SignupView() {
     <div>
       <h1>User Registration and File Upload</h1>
       <div>
-        <img width="100" src={newUser.avatarPicture} />
+        <img width="100" src={newUser.avatarPicture} alt="" />
       </div>
       <div className="container">
         {/* // 24. create input fields for username, email and password.Using same handler function */}

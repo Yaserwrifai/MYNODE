@@ -2,7 +2,6 @@ import React , {  useState , useEffect, useContext } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
 import { getToken } from "../utils/getToken";
 import { AppContext } from "../context/appContext";
 import "./item.css"
@@ -29,9 +28,9 @@ function MainItemListCard({ item }) {
   useEffect(() => {
     getProfile();
   }, []);
-  const handleUpdateMuseumClick = () => {
-    setShowUpdateForm((prev) => !prev);
-  };
+  // const handleUpdateMuseumClick = () => {
+  //   setShowUpdateForm((prev) => !prev);
+  // };
 
   const handleChangeHandler = (e) => {
     setUpdatedMuseumData({
@@ -111,14 +110,17 @@ function MainItemListCard({ item }) {
   console.log("item: ", item);
   console.log("updatedComments: ", updatedComments.commentsText);
   console.log("userProfile: ", userProfile);
+  
 
   return (
+    
     <Card  raised sx={{ maxWidth: 345 }}>
       <CardContent>
-      {item.avatarPicture && <img src={item.avatarPicture} height={200} />}
+      {item.avatarPicture && <img src={item.avatarPicture} height={200} alt=""/>}
      <h4>Museum name  : </h4> <p className="redd">{item.name}</p>  
      <h4>Activity type :</h4>  <p className="redd">{item.type}</p>
      <h4>Entry price :  </h4>  <p className="redd">{item.price}  $</p>
+    
         <label htmlFor="updatedComments">
           {/* <p>updatedComments</p> */}
         </label>
