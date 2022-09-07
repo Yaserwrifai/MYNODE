@@ -114,12 +114,10 @@ const login = async (req, res) => {
     }
   }
 };
-const getProfile = (req, res) => {
+const getProfile = async (req, res) => {
   console.log("req :>> ", req.user);
-  res.status(200).json({
-    email: req.user.email,
-    userName: req.user.userName,
-    avatarPicture: req.user.avatarPicture,
-  });
+  const user = await userModel.findById(req.user._id).populate("comments")
+  console.log('user', user)
+  res.status(200).json(user);
 };
 export { uploadUserPicture, signUp, login, getProfile };

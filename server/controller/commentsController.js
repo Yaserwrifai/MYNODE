@@ -1,19 +1,23 @@
 import commentsModel from "../models /commentsModel.js";
-
+import userModel from "../models /usersModel.js";
 const postComments = async (req, res) => {
   console.log("req.body- postComments: ", req.body);
+  console.log("req.user- postComments: ", req.user);
   // console.log("req.user- postComments: ", req.user);
 
   const newComment = new commentsModel({
     userName: req.body.Name,
-    id: req.body._id,
+    museumId: req.body.museumId,
     avatarPicture: req.body.avatarPicture,
     commentText: req.body.commentText,
-    museumId:req.body.museumId,
   });
 
   try {
     const savedComment = await newComment.save();
+    console.log("savedComment", savedComment);
+    const user = await userModel.findById(req.user._id)
+    user.comments.push(savedComment._id)
+    user.save()
     if (res.headersSent !== true) {
       res.status(200).json({
         savedComment,
@@ -32,17 +36,17 @@ const postComments = async (req, res) => {
 const getSpecificComments = async (req, res) => {
   console.log("req.params getSpecificComments:>> ", req.params);
 
-  console.log("req.body - getSpecificComments: ", req.body);
   console.log("req.user - getSpecificComments: ", req.user);
   try {
     const singleComments = await commentsModel.find({
-      mentorId: req.params.mentorsId,
+      museumId: req.params.id,
     });
+
     res.status(200).json({
       singleComments,
     });
   } catch (error) {
-    console.log("error get mentors comments: ", error);
+    console.log("error get comments: ", error);
   }
 };
 export { postComments, getSpecificComments };

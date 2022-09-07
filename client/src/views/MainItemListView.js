@@ -8,10 +8,11 @@ function MainItemListView() {
   console.log("myItem:...... ", myItem);
 
   return (
-    <div className="col">
+    <div className="row">
       {myItem &&
         myItem.allMuseums.map((item, i) => {
-          return <MainItemListCard item={item} key={i} />;
+          return <div className="col-xs-12 col-sm-6 col-lg-4">
+            <MainItemListCard item={item} key={i} /></div>;
         })}
     </div>
   );

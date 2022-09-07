@@ -8,11 +8,30 @@ import Button from "@mui/material/Button";
 import "./MainNavbar.css";
 import { Link } from "@mui/material";
 
+//import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 function MainNavbar() {
   return (
     <>
-      <Box sx={{ flexGrow: 5 }}>
+
+<Navbar bg="danger" variant="light">
+        <Container>
+          <Navbar.Brand href="home">HOME</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="sinup">SIGNUP</Nav.Link>
+            <Nav.Link href="login">LOGIN</Nav.Link>
+            <Nav.Link href="profile">PROFILE</Nav.Link>
+            <Nav.Link href="postmuseum">NEW_MUSEUM</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      {/* <Box sx={{ flexGrow: 5 }}>
         <AppBar position="static" className="link">
           <Toolbar variant="dense" style={{ width: "100px" }}>
             <Typography
@@ -39,7 +58,7 @@ function MainNavbar() {
             </Link>
           </Toolbar>
         </AppBar>
-      </Box>
+      </Box> */}
     </>
   );
 }

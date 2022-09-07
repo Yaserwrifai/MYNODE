@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema({
   avatarPicture: {
     type: String,
   },
+  comments: [{type : mongoose.Schema.Types.ObjectId, ref: "comments"}]
 });
 
 const userModel = mongoose.model("user", userSchema);
