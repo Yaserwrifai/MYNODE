@@ -48,15 +48,15 @@ const AppContextProvider = (props) => {
         const result = await response.json();
         console.log('results', result)
 
-
-        const res = await Promise.all(result.comments.map(comment => fetch(
-          `http://localhost:5000/api/museums/${comment.museumId}`,
-          requestOptions
-        )))
-        const museums = await Promise.all(res.map(r => r.json()))
-        console.log('museums', museums)
-
-
+      
+        // const res = await Promise.all(result.comments.map(comment => fetch(
+        //   `http://localhost:5000/api/museums/${comment.museumId}`,
+        //   requestOptions
+        // )))
+        // const museums = await Promise.all(res.map(r => r.json()))
+        // console.log('museums', museums)
+       
+      
         setUserProfile({
           email: result.email,
           userName: result.userName,
@@ -78,6 +78,8 @@ const AppContextProvider = (props) => {
         setIsDataLoading,
         getProfile,
         userProfile,
+       
+        
       }}
     >
       {props.children}

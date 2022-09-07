@@ -105,8 +105,15 @@ const updateMuseum = async (req, res) => {
 };
 
 const getMuseumById = async (req, res) => {
-  const {museumId} = req.params
-  const museum = await museumsModel.findById(museumId)
-  res.status(200).json({  museum });
+  const { museumId } = req.params
+  try {
+    const museum = await museumsModel.findById(museumId)
+    res.status(200).json({ museum });
+  } catch (error) {
+    res.status(409).json({ msg: "no museum", error: error });
+
+  }
+
 }
+
 export { getAllMuseums, uploadPicture, newMuseum, updateMuseum, getMuseumById };

@@ -1,6 +1,10 @@
 import React, { useEffect, useContext } from "react";
 import { AppContext } from "../context/appContext";
 import Card from 'react-bootstrap/Card';
+import "../components/item.css"
+
+
+
 
 
 
@@ -11,6 +15,8 @@ function Profile() {
     getProfile()
   }, [])
   console.log('userProfile', userProfile)
+
+  
   return (
     <>
 
@@ -24,11 +30,16 @@ function Profile() {
             <Card.Title>User Name : {userProfile.userName}</Card.Title>
             <Card.Text>
               User Email  : {userProfile.email}
-
+       
             </Card.Text>
-            {userProfile.comments.map(comment => (
+            {userProfile.comments.map((comment) => (
               <div>
-                <p>{comment.commentText}</p>
+                 Name of museum :   {comment.museumId && <p>{comment.museumId.name}</p> }
+              
+                <p className="redd">My Comments is : {comment.commentText}</p>
+                <p>-------------------------</p>
+             
+
               </div>
             ))}
           </Card.Body>

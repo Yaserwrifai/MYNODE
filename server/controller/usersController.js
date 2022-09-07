@@ -116,7 +116,7 @@ const login = async (req, res) => {
 };
 const getProfile = async (req, res) => {
   console.log("req :>> ", req.user);
-  const user = await userModel.findById(req.user._id).populate("comments")
+  const user = await userModel.findById(req.user._id).populate({ path: "comments", populate: { path: "museumId", model: "museum" } })
   console.log('user', user)
   res.status(200).json(user);
 };
