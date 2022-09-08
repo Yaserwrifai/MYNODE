@@ -34,11 +34,11 @@ function Profile() {
             </Card.Text>
             {userProfile.comments.map((comment) => (
               <div>
-                 Name of museum :   {comment.museumId && <p>{comment.museumId.name}</p> }
+                 <p className="bluee">Name of museum : </p>  {comment.museumId && <p>{comment.museumId.name}</p> }
               
-                <p className="redd">My Comments is : {comment.commentText}</p>
+                <p className="redd">My Comments is :<p className="bluee"> {comment.commentText}</p></p>
              
-            
+             <p>--------------------------------</p>
 
               </div>
             ))}
