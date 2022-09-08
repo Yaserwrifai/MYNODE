@@ -37,8 +37,8 @@ function Profile() {
                  Name of museum :   {comment.museumId && <p>{comment.museumId.name}</p> }
               
                 <p className="redd">My Comments is : {comment.commentText}</p>
-                <p>-------------------------</p>
              
+            
 
               </div>
             ))}

@@ -18,6 +18,7 @@ const postComments = async (req, res) => {
     const user = await userModel.findById(req.user._id)
     user.comments.push(savedComment._id)
     user.save()
+  
     if (res.headersSent !== true) {
       res.status(200).json({
         savedComment,
@@ -49,4 +50,20 @@ const getSpecificComments = async (req, res) => {
     console.log("error get comments: ", error);
   }
 };
-export { postComments, getSpecificComments };
+
+
+
+const getAllComments = async (req, res) => {
+  console.log("req.body getAllComments:>> ", req.body);
+
+  try {
+    const allComments = await commentsModel.find({});
+
+    res.status(200).json({
+      allComments,
+    });
+  } catch (error) {
+    console.log("error geting  all comments: ", error);
+  }
+};
+export { postComments, getSpecificComments,getAllComments };

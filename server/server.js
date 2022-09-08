@@ -50,6 +50,7 @@ const loadRoutes = () => {
   // here  new route for users and import the usersRoute
   app.use("/api/users", usersRoute);
   app.use("/api/comments", commentsRoute);
+  //app.use("/api/comments/getAllComments",getAllComments)
 };
 (async function controller() {
   mongoBConnection();
