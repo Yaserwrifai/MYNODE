@@ -18,7 +18,7 @@ function MainItemListCard({ item }) {
   myHeaders.append("Authorization", `Bearer ${token}`);
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
   console.log("showUpdateForm: ", showUpdateForm);
-  const museumId = item.id;
+  const museumId = item._id;
 
   const getComments = async () => {
     const response = fetch(
@@ -81,7 +81,7 @@ function MainItemListCard({ item }) {
     e.preventDefault();
     console.log("updatedComments", updatedComments);
     console.log("item._id", item._id);
-    
+    console.log('museumId', museumId)
     var requestOptions = {
       method: "POST",
       headers: {
