@@ -4,7 +4,9 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { getToken } from "../utils/getToken";
 import { AppContext } from "../context/appContext";
-import "./item.css"
+import "./item.css";
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 
 function MainItemListCard({ item }) {
@@ -182,11 +184,11 @@ const handleDeleteOneComment = async (e) => {
               return (
                 museumId === comments.museumId && (
                   <div key={i}>
-                    <ol> -  {comments.commentText}</ol>
-                    <button onClick={handleDeleteOneComment} id={comments._id}>
-                      Delete
+                  
+                    <button class="btn" onClick={handleDeleteOneComment} id={comments._id}>
+                    <i class="fa fa-trash"></i>
                     </button>
-                    
+                   ({comments.commentText}.)
                   </div>
                 )
               );
