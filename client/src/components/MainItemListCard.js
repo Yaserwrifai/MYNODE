@@ -13,6 +13,7 @@ function MainItemListCard({ item }) {
   const [updatedMuseumData, setUpdatedMuseumData] = useState(null);
   const [updatedComments, setUpdatedComments] = useState({});
   const [showUpdateForm, setShowUpdateForm] = useState(true);
+  const [allComments, setAllComments] = useState(null);
   const token = getToken();
   const myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
@@ -111,15 +112,85 @@ function MainItemListCard({ item }) {
   console.log("updatedComments: ", updatedComments.commentsText);
   console.log("userProfile: ", userProfile);
   
+//All Comments
+const getAllComments = async () => {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  try {
+    const response = await fetch(
+      ` http://localhost:5000/api/comments/allComments`,
+      requestOptions
+    );
+
+    const result = await response.json();
+    setAllComments(result.allComments);
+    console.log("result.allComments: ", result);
+  } catch (error) {
+    console.log("error getting  comments: ", error);
+  }
+};
+useEffect(() => {
+  getAllComments();
+}, []);
+//for delete comments
+const handleDeleteOneComment = async (e) => {
+  console.log("e.target.id", e.currentTarget.id);
+  const commentsId = e.currentTarget.id;
+  const deleteOptions = {
+    method: "put",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ commentsId: commentsId }),
+  };
+  try {
+    const response = await fetch(
+      "http://localhost:5000/api/comments/delete-one-comment",
+      deleteOptions
+    );
+    getAllComments()
+    console.log("response-deleteOneComment: ", response);
+    //getAllComments();
+  } catch (error) {
+    console.log("error deleting comment: ", error);
+  }
+};
+
 
   return (
     
     <Card  raised sx={{ maxWidth: 345 }}>
       <CardContent>
-      {item.avatarPicture && <img src={item.avatarPicture} height={200} alt=""/>}
-     <h4>Museum name  : </h4> <p className="redd">{item.name}</p>  
-     <h4>Activity type :</h4>  <p className="redd">{item.type}</p>
-     <h4>Entry price :  </h4>  <p className="redd">{item.price}  $</p>
+     <Typography gutterBottom variant="h6" component="div">
+          {item.avatarPicture && <img src={item.avatarPicture} height={200} />}
+
+          {item && <p>Museum name:<p className="redd"> {item.name}</p></p>}
+          {item && <p>Type: <p className="redd"> {item.type}</p></p>}
+          {item && <p>Ticket-Entry price : <p className="redd"> {item.price} $</p></p>}
+        </Typography>
+        <hr></hr>
+        <div>
+          <h2>User Comments :</h2>
+          {allComments &&
+            allComments.map((comments, i) => {
+              return (
+                museumId === comments.museumId && (
+                  <div key={i}>
+                    <ol> -  {comments.commentText}</ol>
+                    <button onClick={handleDeleteOneComment} id={comments._id}>
+                      Delete
+                    </button>
+                    
+                  </div>
+                )
+              );
+            })}
     
         <label htmlFor="updatedComments">
           {/* <p>updatedComments</p> */}
@@ -138,10 +209,9 @@ function MainItemListCard({ item }) {
           {" "}
           Update Comment
         </button>
-
-        <Typography gutterBottom variant="h5" component="div">
-          
-        </Typography>
+</div>
+<hr></hr>
+        
       </CardContent>
       {/* <Button onClick={handleUpdateMuseumClick}>Show More</Button> */}
 

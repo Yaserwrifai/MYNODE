@@ -1,9 +1,10 @@
 import commentsModel from "../models /commentsModel.js";
 import userModel from "../models /usersModel.js";
+
 const postComments = async (req, res) => {
   console.log("req.body- postComments: ", req.body);
   console.log("req.user- postComments: ", req.user);
-  // console.log("req.user- postComments: ", req.user);
+ 
 
   const newComment = new commentsModel({
     userName: req.body.Name,
@@ -66,4 +67,22 @@ const getAllComments = async (req, res) => {
     console.log("error geting  all comments: ", error);
   }
 };
-export { postComments, getSpecificComments,getAllComments };
+
+const deleteOneComment = async (req, res) => {
+  console.log("req.body- deleteOneComment: ", req.body);
+  try {
+    const comment = await commentsModel.findByIdAndDelete(req.body.commentsId);
+    console.log("Comment deleted successfully.");
+    res.status(200).json({
+      msg: "Comment deleted successfully.",
+    });
+  } catch (error) {
+    console.log("error deleting comment: ", error);
+    res.status(400).json({
+      msg: "error deleting comment: ",
+      error,
+    });
+  }
+};
+
+export { postComments, getSpecificComments, getAllComments, deleteOneComment };
