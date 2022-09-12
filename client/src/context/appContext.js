@@ -1,4 +1,4 @@
-// import { keyframes } from "@emotion/react";
+
 import React, { createContext, useState } from "react";
 import { useEffect } from "react";
 import { getToken } from "../utils/getToken";
@@ -48,15 +48,7 @@ const AppContextProvider = (props) => {
         const result = await response.json();
         console.log('results', result)
 
-      
-        // const res = await Promise.all(result.comments.map(comment => fetch(
-        //   `http://localhost:5000/api/museums/${comment.museumId}`,
-        //   requestOptions
-        // )))
-        // const museums = await Promise.all(res.map(r => r.json()))
-        // console.log('museums', museums)
-       
-      
+  
         setUserProfile({
           email: result.email,
           userName: result.userName,

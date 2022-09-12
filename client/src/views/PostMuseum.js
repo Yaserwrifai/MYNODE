@@ -81,7 +81,7 @@ if(imageUrl){
   return (
     <div>
       <div>
-        <img width="100" src={newMuseum.avatarPicture} />
+        <img width="100" src={newMuseum.avatarPicture} alt=""/>
       </div>
       <form onSubmit={addMuseum}>
         <label htmlFor="addMuseum">NewMuseum</label>

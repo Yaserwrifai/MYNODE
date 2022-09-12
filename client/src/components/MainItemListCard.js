@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import { getToken } from "../utils/getToken";
 import { AppContext } from "../context/appContext";
 import "./item.css";
-import DeleteIcon from '@mui/icons-material/Delete';
+
 
 
 
@@ -63,7 +63,7 @@ function MainItemListCard({ item }) {
     urlencoded.append("name", updatedMuseumData.name);
     urlencoded.append("price", updatedMuseumData.price);
 
-    var requestOptions = {
+    const requestOptions = {
       method: "PUT",
       body: urlencoded,
     };

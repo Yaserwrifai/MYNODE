@@ -14,12 +14,12 @@ function MainNavbar() {
 
 <Navbar bg="danger" variant="light">
         <Container>
-          <Navbar.Brand href="home">HOME</Navbar.Brand>
+          <Navbar.Brand href="home">Home</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="signup">SIGNUP</Nav.Link>
-            <Nav.Link href="login">LOGIN</Nav.Link>
-            <Nav.Link href="profile">PROFILE</Nav.Link>
-            <Nav.Link href="postmuseum">NEW_MUSEUM</Nav.Link>
+            <Nav.Link href="signup">SignUp</Nav.Link>
+            <Nav.Link href="login">Login</Nav.Link>
+            <Nav.Link href="profile">Profile</Nav.Link>
+            <Nav.Link href="postmuseum">NewMuseum</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
